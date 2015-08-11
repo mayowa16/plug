@@ -112,7 +112,7 @@ if ($title) echo $beforetitle . $title . $aftertitle;
 
 
 
-$pq = new WP_Query(array( 'post_type' => $ptype, 'showposts' => $pshow ));
+$pq = new WP_Query(array( 'post' => $ptype, 'showposts' => $pshow ));
 if( $pq->have_posts() ) :
 ?>
 
