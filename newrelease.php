@@ -138,8 +138,9 @@ if( $pq->have_posts() ) :
 
 <?php while($pq->have_posts()) : $pq->the_post(); ?>
 
-    <li><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></li>
-
+    <li><img src="<?php echo $thumbnail; ?>"  /><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?>
+    
+    </a></li>
 
 <?php wp_reset_query();
 endwhile; ?>
