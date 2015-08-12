@@ -15,6 +15,16 @@ Author URI: phoenix.sheridanc.on.ca/~ccit2717/
 // 	register_post_type( 'post_type_name', $args);
 // }
 
+function add_my_stylesheet() 
+   {
+      wp_register_style( 'shortcode-style', plugins_url( 'newrelease.css', __FILE__ ) );
+  	wp_enqueue_style('shortcode-style');
+  
+  }
+  add_action('wp_enqueue_scripts', 'add_my_stylesheet');
+
+
+
 add_action( 'init', 'register_cpt_cp_name' );
  
 function register_cpt_cp_name() {
@@ -112,7 +122,7 @@ if ($title) echo $beforetitle . $title . $aftertitle;
 
 
 
-$pq = new WP_Query(array( 'post' => $ptype, 'showposts' => $pshow ));
+$pq = new WP_Query(array( 'post_type' => $ptype, 'showposts' => $pshow ));
 if( $pq->have_posts() ) :
 ?>
 
