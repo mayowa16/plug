@@ -138,9 +138,15 @@ if( $pq->have_posts() ) :
 
 <?php while($pq->have_posts()) : $pq->the_post(); ?>
 
-    <li><img src="<?php echo $thumbnail; ?>"  /><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?>
+    <li><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></li>
     
-    </a></li>
+   <?php
+    global $post;
+
+if ( has_post_thumbnail( $post->ID ) )
+  echo get_the_post_thumbnail( $post->ID, 'your-image-size' );
+  
+  ?>
 
 <?php wp_reset_query();
 endwhile; ?>
