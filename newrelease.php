@@ -9,26 +9,8 @@ Author URI: phoenix.sheridanc.on.ca/~ccit2717/
 */
 
 
-// add_action( 'init', 'create_post_type' );
-// function create_post_type() {
-//         $args = array();
-// 	register_post_type( 'post_type_name', $args);
-// }
 
-//the code below was added in order to enque a stylesheet to the plugin
-
- function add_my_stylesheet() 
-   {
-      wp_register_style( 'shortcode-style', plugins_url( 'newrelease.css', __FILE__ ) );
-  	wp_enqueue_style('shortcode-style');
-  
-  }
-  add_action('wp_enqueue_scripts', 'add_my_stylesheet');
-
-
-
-
-//this array below controls the wordings of the title of the custom page itself and all the other elements within it
+//this is the beginning of the this array below controls the wordings of the title of the custom page itself and all the other elements within it
 add_action( 'init', 'register_cpt_cp_name' );
  
 function register_cpt_cp_name() {
