@@ -127,7 +127,8 @@ if ($title) echo $beforetitle . $title . $aftertitle;
 
 
 //this is where we control the posts the seen on the widget side bar
-$pq = new WP_Query(array( 'post_type' => $ptype, 'showposts' => $pshow ));
+
+$pq = new WP_Query(array( 'post_type' => 'cp_name', 'showposts' => $pshow ));
 if( $pq->have_posts() ) :
 
 // //this code below is what makes the post titles in our side bar widget clickable and takes the user to the selected posts in out custom post type
