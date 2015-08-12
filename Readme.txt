@@ -24,6 +24,8 @@ All 'New Releases' posts will be listed in the sidebar when activated.
 4. Your plugin has now been activated, and the widget has been added to the sidebar. 
 
 
+== How to use it ==
+Once the plugin has been installed and the widget called “Latest custom posts:New releases” has been dragged to the sidebar. A custom post type called “New Releases” will appear at in the menu of your account and a menu also called “New Releases” will appear in the sidebar on the page. In oder to change the content/title or add new content to the widget all that is needed is to go into the the “New Releases” custom post type and add/edit content. The new/updated content will appear in the sidebar widget automatically. If for some reason your changes are not visible all you need to do is drag the “Latest custom posts:New releases” widget out of the sidebar and drag it back in. In order to view each of the posts you created all you need to do is click on the post title in the side bar widget and you will be automatically taken to the selected post
 
 == Frequently asked questions ==
 
