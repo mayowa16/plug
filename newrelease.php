@@ -167,7 +167,7 @@ echo $after_widget;
 */
 function n2wp_latest_cpt_control() {
 
-// Get options
+// Get options. the code beloe also controls the amount of posts in the widget. no matter the amount of posts are in the custom post type:new releases, only 5 of those posts will show
 $options = get_option( 'register_cpt_cp_name' );
 
 if ( !is_array( $options ))
