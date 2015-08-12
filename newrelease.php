@@ -34,18 +34,18 @@ add_action( 'init', 'register_cpt_cp_name' );
 function register_cpt_cp_name() {
  
     $labels = array( 
-  	'name'               => __( 'New releases', 'text_domain' ),
-		'singular_name'      => __( 'New releases', 'text_domain' ),
-		'add_new'            => __( 'Add New releases', '${4:Name}', 'text_domain' ),
-		'add_new_item'       => __( 'Add New releases', 'text_domain}' ),
-		'edit_item'          => __( 'Edit New releases', 'text_domain' ),
-		'new_item'           => __( 'New car releases', 'text_domain' ),
-		'view_item'          => __( 'View New releases', 'text_domain' ),
-		'search_items'       => __( 'Search New releases', 'text_domain' ),
-		'not_found'          => __( 'No New releases found', 'text_domain' ),
-		'not_found_in_trash' => __( 'No New releases found in Trash', 'text_domain' ),
-		'parent_item_colon'  => __( 'Parent sNew releases:', 'text_domain' ),
-		'menu_name'          => __( 'New releases', 'text_domain' ),
+  	'name'               => __( 'New releases', 'new releases' ),
+		'singular_name'      => __( 'New releases', 'new releases' ),
+		'add_new'            => __( 'Add New releases', 'new releases', 'new releases' ),
+		'add_new_item'       => __( 'Add New releases', 'new releases' ),
+		'edit_item'          => __( 'Edit New releases', 'new releases' ),
+		'new_item'           => __( 'New car releases', 'new releases' ),
+		'view_item'          => __( 'View New releases', 'new releases' ),
+		'search_items'       => __( 'Search New releases', 'new releases' ),
+		'not_found'          => __( 'No New releases found', 'new releases' ),
+		'not_found_in_trash' => __( 'No New releases found in Trash', 'new releases' ),
+		'parent_item_colon'  => __( 'Parent New releases:', 'new releases' ),
+		'menu_name'          => __( 'New releases', 'new releases' ),
     );
  
   $args = array( 
@@ -183,9 +183,10 @@ $phead = $options['phead'];
 $ptype = $options['ptype'];
 $pshow = $options['pshow'];
 
+// // The code below controls the widget form fields, when you go to appearance and then widgets and then select the widget "Latest custom posts:New releases" the form fields below will be visible 
 
 ?>
-// The code below controls the widget form fields, when you go to appearance and then widgets and then select the widget "Latest custom posts:New releases" the form fields below will be visible 
+
  
 <label for="latest-cpt-title"><?php echo __( 'Widget Title' ); ?>
 <input id="latest-cpt-title" type="text" name="latest-cpt-title" size="30" value="<?php echo $title; ?>" />
