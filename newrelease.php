@@ -2,15 +2,28 @@
 /*
 Plugin Name:New release
 Version: 0.1
-Plugin URI: http://www.codiva.com/
+Plugin URI: phoenix.sheridanc.on.ca/~ccit2721/
 Description:  Testimonials is a plugin that lets you add  testimonials in WordPress
-Author: Mayowa
-Author URI: phoenix.sheridanc.on.ca/~ccit2717/
+Author: Mayowa and Harinder
+Author URI: phoenix.sheridanc.on.ca/~ccit2721/
 */
 
 
 
+
+//this is the code to enque the style sheet to the plugin widget. this was the same exact code that was correct during the shortcode lab but it has refused to enque styles to my plugin
+
+function add_my_stylesheet() 
+   {
+      wp_register_style( 'custom-style', plugins_url( 'plugin.css', __FILE__ ) );
+  	wp_enqueue_style('custom-style');
+  
+  }
+  add_action('wp_enqueue_scripts', 'add_my_stylesheet');
+
 //this is the beginning of the this array below controls the wordings of the title of the custom page itself and all the other elements within it
+
+
 add_action( 'init', 'register_cpt_cp_name' );
  
 function register_cpt_cp_name() {
