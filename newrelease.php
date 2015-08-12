@@ -15,7 +15,9 @@ Author URI: phoenix.sheridanc.on.ca/~ccit2717/
 // 	register_post_type( 'post_type_name', $args);
 // }
 
-function add_my_stylesheet() 
+//the code below was added in order to enque a stylesheet to the plugin
+
+ function add_my_stylesheet() 
    {
       wp_register_style( 'shortcode-style', plugins_url( 'newrelease.css', __FILE__ ) );
   	wp_enqueue_style('shortcode-style');
@@ -25,6 +27,8 @@ function add_my_stylesheet()
 
 
 
+
+//this array below controls the wordings of the title of the custom page itself and all the other elements within it
 add_action( 'init', 'register_cpt_cp_name' );
  
 function register_cpt_cp_name() {
@@ -94,8 +98,9 @@ function register_cpt_cp_name() {
 // 	return $labels;
 // }
 
+//end of the custom post type 
 
-
+//the following codes below is where we begin to turn our plugin custom postype into a widget
 
 function n2wp_latest_cpt_init() {
 if ( !function_exists( 'register_sidebar_widget' ))
@@ -105,7 +110,7 @@ function n2wp_latest_cpt($args) {
 global $post;
 extract($args);
 
-// These are our own options
+// The following set of code below are our own options
 $options = get_option( 'n2wp_latest_cpt' );
 $title = $options['title']; // Widget title
 $phead = $options['phead']; // Heading format
@@ -115,18 +120,24 @@ $pshow = $options['pshow']; // Number of Tweets
 $beforetitle = '';
 $aftertitle = '';
 
-// Output
+// this is what the page outputs
 echo $before_widget;
 
 if ($title) echo $beforetitle . $title . $aftertitle;
 
 
-
+//this is where we control the posts the seen on the widget side bar
 $pq = new WP_Query(array( 'post_type' => $ptype, 'showposts' => $pshow ));
 if( $pq->have_posts() ) :
+
+// //this code below is what makes the post titles in our side bar widget clickable and takes the user to the selected posts in out custom post type
+
+//the_title code is what makes only the title appear in the post, if the code were to say the_content, then the entire content in the post will appear in the sidebar   
 ?>
 
+
 <?php while($pq->have_posts()) : $pq->the_post(); ?>
+
     <li><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></li>
 
 
@@ -139,7 +150,7 @@ endwhile; ?>
 
 
 <?php
-// echo widget closing tag
+// this code below echos the widget closing tag
 echo $after_widget;
 }
 
@@ -150,7 +161,7 @@ function n2wp_latest_cpt_control() {
 
 // Get options
 $options = get_option( 'register_cpt_cp_name' );
-// options exist? if not set defaults
+
 if ( !is_array( $options ))
 $options = array(
 'title' => 'New Releases',
@@ -158,7 +169,7 @@ $options = array(
 'ptype' => 'post',
 'pshow' => '5'
 );
-// form posted?
+
 if ( $_POST ) {
 $options['title'] = strip_tags( $_POST['latest-cpt-title'] );
 $options['phead'] = $_POST['latest-cpt-phead'];
@@ -172,9 +183,9 @@ $phead = $options['phead'];
 $ptype = $options['ptype'];
 $pshow = $options['pshow'];
 
-// The widget form fields
-?>
 
+?>
+// The code below controls the widget form fields, when you go to appearance and then widgets and then select the widget "Latest custom posts:New releases" the form fields below will be visible 
  
 <label for="latest-cpt-title"><?php echo __( 'Widget Title' ); ?>
 <input id="latest-cpt-title" type="text" name="latest-cpt-title" size="30" value="<?php echo $title; ?>" />
